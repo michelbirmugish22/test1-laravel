@@ -15,14 +15,14 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 
 RUN php artisan config:clear
-RUN php artisan cache:clear
-RUN php artisan route:clear
-RUN php artisan view:clear
+# RUN php artisan cache:clear
+# RUN php artisan route:clear
+# RUN php artisan view:clear
 
 # Remprendre le cache de configuration, de route et de vue pour s'assurer que les modifications sont prises en compte.
 RUN php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache 
+# RUN php artisan route:cache
+# RUN php artisan view:cache 
 
 RUN chmod -R 775 storage bootstrap/cache
 
